@@ -1,4 +1,4 @@
-package com.manishpnsharma.validations.exceptions;
+package com.manishpnsharma.curd.exceptions;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

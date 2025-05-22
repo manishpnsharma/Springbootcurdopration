@@ -23,13 +23,19 @@ public class UserService {
         userRepository.delete(user);
     }
 
-   public Optional<User> getUserById(Long id) throws NoSuchUserExistsException {
-        // return userRepository.findById(id);
-        return Optional.ofNullable(userRepository.findById(id).orElseThrow(
-                () -> new NoSuchElementException("NO User PRESENT WITH ID = " + id)));
+  /* public Optional<User> getUserById(Long id) throws NoSuchUserExistsException {
+        return userRepository.findById(id);
+       // return Optional.ofNullable(userRepository.findById(id).orElseThrow(
+              // () -> new NoSuchElementException("NO User PRESENT WITH ID = " + id)));
+    }*/
+
+    public Optional<User> getUserById(Long id) throws NoSuchUserExistsException {
+        return userRepository.findById(id);
+        // return Optional.ofNullable(userRepository.findById(id).orElseThrow(
+        // () -> new NoSuchElementException("NO User PRESENT WITH ID = " + id)));
     }
 
-   /* public User getUserById(Long id) throws NoSuchUserExistsException {
+    /*public User getUserById(Long id) throws NoSuchUserExistsException {
          return userRepository.findById(id);
         }*/
 

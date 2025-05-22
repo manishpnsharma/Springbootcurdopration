@@ -10,6 +10,7 @@ import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -27,19 +28,25 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Optional<User> getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        Optional<User> userOptional = userService.getUserById(id);
+        return userOptional.map(ResponseEntity::ok)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "NO User PRESENT WITH ID : " + id));
     }
 
-   /* @GetMapping("/{id}")
-    public ResponseEntity getUserById(@PathVariable Long id) {
-       // String responseBody = "Request was successful!";
-       // userService.getUserById(id).toString();
-        return new ResponseEntity(userService.getUserById(id).toString(), HttpStatus.OK);
-    }*/
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        // Create the resource
+        User createdUser = userService.createUser(user);
+        // Return the created resource with a 201 (created) status code
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(createdUser);
+    }
+
+    @ExceptionHandler(ResponseStatusException.class)
+    public ResponseEntity<String> handleNotFoundException(ResponseStatusException ex) {
+        return new ResponseEntity<>(ex.getReason(), ex.getStatusCode());
     }
 
     @DeleteMapping("/{id}")

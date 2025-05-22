@@ -11,8 +11,6 @@ public class NoSuchUserExistsException extends RuntimeException {
     }
 
     public NoSuchUserExistsException(String msg) {
-
         super(msg);
     }
-
 }

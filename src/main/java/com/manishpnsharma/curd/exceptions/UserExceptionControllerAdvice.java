@@ -11,14 +11,12 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class UserExceptionControllerAdvice extends ResponseEntityExceptionHandler {
-
     @ExceptionHandler(NoSuchUserExistsException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-   public ExceptionResponse noSuchUserExistsException(final NoSuchUserExistsException noSuchUserExistsException, @NotNull final HttpServerRequest request) {
+    public ExceptionResponse noSuchUserExistsException(final NoSuchUserExistsException noSuchUserExistsException, @NotNull final HttpServerRequest request) {
         ExceptionResponse exceptionResponse = new ExceptionResponse();
         exceptionResponse.setErrorMessage(noSuchUserExistsException.getMessage());
         exceptionResponse.callerURL(request.url());
         return exceptionResponse;
     }
-
 }

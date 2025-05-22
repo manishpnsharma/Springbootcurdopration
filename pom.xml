@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.manishpnsharma</groupId>
-    <artifactId>Curd-operation</artifactId>
+    <artifactId>SpringBootValidation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Curd-operation</name>
+    <name>SpringBootValidation</name>
     <description>Curd operation project for Spring Boot</description>
     <url/>
     <licenses>

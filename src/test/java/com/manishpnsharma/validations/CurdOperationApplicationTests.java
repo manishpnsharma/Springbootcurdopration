@@ -1,4 +1,4 @@
-package com.manishpnsharma.curd;
+package com.manishpnsharma.validations;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

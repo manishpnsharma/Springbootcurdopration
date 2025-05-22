@@ -1,4 +1,4 @@
-package com.manishpnsharma.curd.module;
+package com.manishpnsharma.validations.module;
 import jakarta.persistence.*;
 @Entity
 @Table(name = "users")

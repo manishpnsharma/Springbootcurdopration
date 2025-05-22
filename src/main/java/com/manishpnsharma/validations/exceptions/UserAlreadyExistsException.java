@@ -1,4 +1,4 @@
-package com.manishpnsharma.curd.exceptions;
+package com.manishpnsharma.validations.exceptions;
 public class UserAlreadyExistsException extends RuntimeException {
     private String message;
     public UserAlreadyExistsException() {

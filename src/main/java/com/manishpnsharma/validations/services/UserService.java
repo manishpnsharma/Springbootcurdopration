@@ -1,7 +1,7 @@
-package com.manishpnsharma.curd.services;
-import com.manishpnsharma.curd.exceptions.EmptyInputFieldException;
-import com.manishpnsharma.curd.module.User;
-import com.manishpnsharma.curd.repositories.UserRepository;
+package com.manishpnsharma.validations.services;
+import com.manishpnsharma.validations.exceptions.EmptyInputFieldException;
+import com.manishpnsharma.validations.module.User;
+import com.manishpnsharma.validations.repositories.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

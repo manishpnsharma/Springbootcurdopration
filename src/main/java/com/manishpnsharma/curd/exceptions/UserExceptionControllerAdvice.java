@@ -21,16 +21,17 @@ public class UserExceptionControllerAdvice extends ResponseEntityExceptionHandle
 
     @ExceptionHandler(NoSuchUserExistsException.class)
     protected ResponseEntity<String> handleNoSuchUserExistsException(NoSuchUserExistsException emptyInputFieldException) {
-        return new ResponseEntity<>("Id not find in data base ", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("NO USER PRESENT WITH ID", HttpStatus.NOT_FOUND);
     }
 
     @Override
     protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-        return new ResponseEntity<>("Change Http Method ", HttpStatus.METHOD_NOT_ALLOWED);
+        return new ResponseEntity<>("Change Http Method Or URL Or input Parameter", HttpStatus.METHOD_NOT_ALLOWED);
     }
+
     @ExceptionHandler(NoSuchElementException.class)
     protected ResponseEntity<String> handleNoSuchElementException(NoSuchElementException noSuchElementException) {
-        return new ResponseEntity<>("Id not find in data base ", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("NO USER PRESENT WITH ID FOR DELETE", HttpStatus.NOT_FOUND);
     }
     //NoResourceFoundException
 }

@@ -36,9 +36,9 @@ public class UserService {
     public Optional<User> getUserById(Long id){
         return userRepository.findById(id);
         }
-    public void userUpdate(User user) {
-        userRepository.save(user);
-    }
+   /* public User userUpdate(User user) {
+        return userRepository.save(user);
+    }*/
     public List<User> getUsers() {
         return userRepository.findAll();
     }

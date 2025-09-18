@@ -1,8 +1,16 @@
 package database.database_service;
 
-
-
 public class StudentEntity {
+    private Integer student_id;
+    private String student_fname;
+    private String student_lname;
+    private String student_mname;
+    private String student_dep;
+    private String student_cource;
+    private Double student_salary;
+    private Integer student_age;
+    private Integer id;
+
     public Integer getStudent_id() {
         return student_id;
     }
@@ -74,14 +82,4 @@ public class StudentEntity {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    Integer student_id;
-    String student_fname;
-    String student_lname;
-    String student_mname;
-    String student_dep;
-    String student_cource;
-    Double student_salary;
-    Integer student_age;
-    Integer id;
 }

@@ -4,7 +4,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -35,6 +34,7 @@ public class ExternalServiceCaller {
                 .collectList() // Collect Flux into a List
                 .block(); // Block to get the result synchronously
     }
+
     public Student saveStudent(StudentEntity studentEntity) {
         String url = "http://localhost:8081/v1/api/ui/student";
         return webClient.post()
@@ -43,8 +43,5 @@ public class ExternalServiceCaller {
                 .body(BodyInserters.fromValue(studentEntity))
                 .retrieve()
                 .bodyToMono(Student.class).block(); // Expecting a Product object in response
-
     }
-
-
 }

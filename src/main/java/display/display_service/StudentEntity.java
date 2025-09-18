@@ -1,6 +1,16 @@
 package display.display_service;
 
 public class StudentEntity {
+    Integer student_id;
+    String student_fname;
+    String student_lname;
+    String student_mname;
+    String student_dep;
+    String student_cource;
+    Double student_salary;
+    Integer student_age;
+    Integer id;
+
     public Integer getStudent_id() {
         return student_id;
     }
@@ -73,13 +83,4 @@ public class StudentEntity {
         this.id = id;
     }
 
-    Integer student_id;
-    String student_fname;
-    String student_lname;
-    String student_mname;
-    String student_dep;
-    String student_cource;
-    Double student_salary;
-    Integer student_age;
-    Integer id;
 }

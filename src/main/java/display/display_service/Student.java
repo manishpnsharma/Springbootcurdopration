@@ -1,9 +1,15 @@
 package display.display_service;
 
-import jakarta.persistence.*;
-
 public class Student {
     private Integer student_id;
+    private String student_fname;
+    private String student_lname;
+    private String student_mname;
+    private String student_dep;
+    private String student_cource;
+    private Double student_salary;
+    private Integer student_age;
+    private Integer id;
 
     public String getStudent_fname() {
         return student_fname;
@@ -77,12 +83,4 @@ public class Student {
         this.student_id = student_id;
     }
 
-    private String student_fname;
-    private String student_lname;
-    private String student_mname;
-    private String student_dep;
-    private String student_cource;
-    private Double student_salary;
-    private Integer student_age;
-    private Integer id;
 }

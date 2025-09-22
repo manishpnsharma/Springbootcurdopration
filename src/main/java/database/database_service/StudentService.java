@@ -3,6 +3,7 @@ package database.database_service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Executable;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,4 +32,20 @@ public class StudentService {
 
         return studentRepository.save(student);
     }
+
+    public void studentDeleteById(Student student) {
+        try {
+            Optional<Student> dataPresent = studentRepository.findById(student.getStudent_id());
+            if (dataPresent.isPresent()) {
+                studentRepository.deleteById(student.getStudent_id());
+                System.out.println("delete record id " + student.getStudent_id());
+            } else {
+                System.out.println("record id not found" + student.getStudent_id());
+            }
+        } catch (Exception e) {
+            System.out.println("Error here");
+        }
+    }
+
+
 }

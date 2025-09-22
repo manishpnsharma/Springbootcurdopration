@@ -31,4 +31,18 @@ public class StudentController {
         System.out.println("Test .save...Database.");
         return studentService.createStudent(studentEntity);
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteStudentById(@PathVariable Integer id) {
+        String msg = "";
+        Student se = new Student();
+        se.setStudent_id(id);
+        if (studentService.displayById(se).isPresent()) {
+            studentService.studentDeleteById(se);
+            msg = "recored success full deleted :" + id;
+        } else {
+            msg = "record not found  :" + id;
+        }
+        return msg;
+    }
 }

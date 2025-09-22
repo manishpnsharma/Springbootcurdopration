@@ -21,4 +21,8 @@ public class StudentService {
     Student createStudent(StudentEntity studentEntity) {
         return externalServiceCaller.saveStudent(studentEntity);
     }
+
+    void deleteStudent(Integer id) {
+        externalServiceCaller.deleteStudent(id);
+    }
 }

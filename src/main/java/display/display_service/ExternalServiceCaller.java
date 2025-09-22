@@ -24,7 +24,7 @@ public class ExternalServiceCaller {
                 .bodyToMono(Student.class)
                 .onErrorResume(e -> Mono.empty())
                 .block();
-                 }
+    }
 
     public List<Student> fetchStudents() {
         String url = "http://localhost:8081/v1/api/ui/student";
@@ -45,4 +45,12 @@ public class ExternalServiceCaller {
                 .retrieve()
                 .bodyToMono(Student.class).block(); // Expecting a Product object in response
     }
+
+    public void deleteStudent(Integer resourceId) {
+        String url = "http://localhost:8081/v1/api/ui/student/" + resourceId;
+        webClient.delete().uri(url, resourceId).retrieve().bodyToMono(Student.class)
+                .onErrorResume(e -> Mono.empty())
+                .block();
+    }
+
 }

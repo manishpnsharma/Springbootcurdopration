@@ -20,7 +20,7 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public Student getStudentById(@PathVariable Integer id) {
+    public Student fetchStudentById(@PathVariable Integer id) {
         System.out.println("Test ....." + id);
         return studentService.getStudentById(id);
     }
@@ -29,5 +29,20 @@ public class StudentController {
     public Student createStudent(@RequestBody StudentEntity studentEntity) {
         System.out.println("Test .save...Database.");
         return studentService.createStudent(studentEntity);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteStudentById(@PathVariable Integer id) {
+        String msg = "";
+        Student std = studentService.getStudentById(id);
+        if (std != null) {
+            studentService.deleteStudent(id);
+            System.out.println("Test .delete...Database." + id);
+            msg = "delete record  is : " + id;
+        } else {
+            msg = "delete record is not present in data base: " + id;
+            System.out.println("delete record is not present in data base: " + id);
+        }
+        return msg;
     }
 }

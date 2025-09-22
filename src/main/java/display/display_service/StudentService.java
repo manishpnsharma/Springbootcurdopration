@@ -10,7 +10,7 @@ public class StudentService {
     @Autowired
     ExternalServiceCaller externalServiceCaller;
 
-    List<Student> getStudentById(Integer id) {
+    Student getStudentById(Integer id) {
         return externalServiceCaller.fetchStudentById(id);
     }
 

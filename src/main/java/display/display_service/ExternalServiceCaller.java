@@ -4,6 +4,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -15,15 +16,15 @@ public class ExternalServiceCaller {
         this.webClient = webClient;
     }
 
-    public List<Student> fetchStudentById(Integer id) {
+    public Student fetchStudentById(Integer id) {
         String url = "http://localhost:8081/v1/api/ui/student/" + id;
         return webClient.get()
                 .uri(url) // Endpoint to fetch the list
                 .retrieve()
-                .bodyToFlux(Student.class) // Convert JSON array to Flux<Employee>
-                .collectList() // Collect Flux into a List
-                .block(); // Block to get the result synchronously
-    }
+                .bodyToMono(Student.class)
+                .onErrorResume(e -> Mono.empty())
+                .block();
+                 }
 
     public List<Student> fetchStudents() {
         String url = "http://localhost:8081/v1/api/ui/student";

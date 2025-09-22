@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "251cdf85-19a5-41ad-999a-822114f1178f",
+		"name": "webcliet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36779755"
+	},
+	"item": [
+		{
+			"name": "get student by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/api/ui/student/4527",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"ui",
+						"student",
+						"4527"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/api/ui/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"ui",
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"student_fname\": \"ddd\",\r\n    \"student_lname\": \"ffff\",\r\n    \"student_mname\": \"ggg\",\r\n    \"student_dep\": \"hhh\",\r\n    \"student_cource\": \"jjj\",\r\n    \"student_salary\": 9944.22,\r\n    \"student_age\": 45\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/api/ui/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"ui",
+						"student"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
